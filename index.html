@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Muslim Moscow</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="app">
+
+        <div class="onboarding-screen" id="onboardingScreen">
+            <div class="onboarding-header">
+                <h2 id="obTitle">Добро пожаловать!</h2>
+                <p id="obSubtitle">Ответьте на пару вопросов, чтобы мы настроили приложение под вас.</p>
+            </div>
+            <div class="onboarding-step active" id="step1">
+                <button class="option-btn" data-value="tourist" id="btnTourist">Я турист / впервые в Москве</button>
+                <button class="option-btn" data-value="local" id="btnLocal">Я живу в Москве</button>
+            </div>
+            <div class="onboarding-step" id="step2">
+                <button class="option-btn" data-value="male" id="btnMale">Мужчина</button>
+                <button class="option-btn" data-value="female" id="btnFemale">Женщина</button>
+            </div>
+            <div class="onboarding-footer">
+                <button class="btn-primary" id="nextBtn" disabled>Далее</button>
+            </div>
+        </div>
+
+        <!-- ПЛАШКА 22 ДНЯ -->
+        <div class="guide-banner hidden" id="guideBanner">
+            <span id="bannerText">🎯 Первые 22 дня: персональный гид по Москве</span>
+            <button id="closeGuide">×</button>
+        </div>
+
+        <!-- ШАПКА -->
+        <div class="app-header">
+            <div class="header">
+                <div class="logo">Muslim <span>Moscow</span></div>
+                <div class="profile" id="headerProfileBtn" onclick="switchTab('profile')">
+                    <span id="headerAvatarText">Г</span>
+                    <img id="headerAvatarImg" style="display: none;" src="" alt="Avatar">
+                </div>
+            </div>
+        </div>
+
+        <!-- КОНТЕНТ -->
+        <div class="app-content" id="appContent">
+            
+            <!-- ВКЛАДКА: ГЛАВНАЯ -->
+            <div class="tab-content active" id="tab-home">
+                <div class="greeting">
+                    <h1 id="greetTitle">Ассаляму алейкум</h1>
+                    <p id="greetSubtitle">Персональный гид по городу</p>
+                </div>
+
+                <div class="search-block">
+                    <div class="search">
+                        <div class="search-icon"></div>
+                        <input type="text" id="searchInput" placeholder="Поиск по названию или адресу...">
+                    </div>
+                </div>
+
+                <div class="map-preview-container" onclick="switchTab('map')">
+                    <div id="homeMap"></div>
+                    <div class="map-overlay-label" id="openMapLabel">Открыть полную карту</div>
+                </div>
+                
+                <div class="map-filters" id="homeFilters">
+                    <div class="filter-btn active" data-filter="Все" data-key="all">Все</div>
+                    <div class="filter-btn" data-filter="Мечети" data-key="mosques">Мечети</div>
+                    <div class="filter-btn" data-filter="Халяль еда" data-key="food">Еда</div>
+                    <div class="filter-btn" data-filter="Супермаркеты" data-key="shops">Магазины</div>
+                    <div class="filter-btn" data-filter="Beauty салоны" data-key="beauty" data-gender="female">Beauty</div>
+                </div>
+
+                <div class="section-title"><span id="catTitle">Категории</span> <span id="catAll">все</span></div>
+                <div class="categories" id="categoriesContainer"></div>
+
+                <!-- ПЛАШКИ -->
+                <div class="daily-benefits">
+                    <div class="benefit-item">
+                        <div class="benefit-label" id="lblPrayer">Намаз</div>
+                        <div class="benefit-value" id="livePrayerName">...</div>
+                        <div class="benefit-sub" id="livePrayerTime">...</div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-label" id="lblWeather">Погода</div>
+                        <div class="benefit-value" id="liveTemp">...</div>
+                        <div class="benefit-sub" id="liveWeatherDesc">...</div>
+                    </div>
+                    <div class="benefit-item">
+                        <div class="benefit-label" id="lblMosque">Мечеть</div>
+                        <div class="benefit-value" id="liveMosqueDistance">...</div>
+                        <div class="benefit-sub" id="liveMosqueName">...</div>
+                    </div>
+                </div>
+
+                <div class="section-title" id="recommendationsTitle"><span id="recTitle">Рекомендуем</span> <span id="recSub">рядом</span></div>
+                <div class="places-list" id="placesList"></div>  
+            </div>
+
+            <!-- КАРТА -->
+            <div class="tab-content" id="tab-map">
+                <div id="map"></div>
+                <div class="map-overlay-filters" id="mapOverlayFilters">
+                    <div class="filter-btn active" data-filter="Все">Все</div>
+                    <div class="filter-btn" data-filter="Мечети">Мечети</div>
+                    <div class="filter-btn" data-filter="Халяль еда">Еда</div>
+                    <div class="filter-btn" data-filter="Супермаркеты">Магазины</div>
+                    
+                    <div class="filter-btn" data-filter="Beauty салоны" data-gender="female">Beauty</div>
+                </div>
+                <div class="map-bottom-card" id="mapBottomCard">
+                    <button class="close-card" onclick="closeMapCard()">×</button>
+                    <h4 id="mapCardTitle">Название</h4>
+                    <p id="mapCardAddress">Адрес</p>
+                    <button onclick="openPlaceFromMap()" id="mapCardBtn">Подробнее</button>
+                </div>
+            </div>
+
+            <!-- ИЗБРАННОЕ -->
+            <div class="tab-content" id="tab-favorites">
+                <div class="section-title" style="padding-top: 20px;"><span id="favTitle">Ваши места</span> <span id="favSub">сохранено</span></div>
+                <div class="places-list" id="favoritesList"></div>
+            </div>
+
+            <!--  ПРОФИЛЬ -->
+            <div class="tab-content" id="tab-profile">
+                <div class="profile-container">
+                    <div class="profile-header-card">
+                        <div class="avatar-wrapper" onclick="document.getElementById('avatarInput').click()">
+                            <div class="avatar-circle" id="avatarCircle">
+                                <span id="avatarPlaceholder">👤</span>
+                                <img id="avatarImage" style="display: none;" src="" alt="Profile">
+                            </div>
+                            <div class="edit-icon">✎</div>
+                        </div>
+                        <input type="file" id="avatarInput" accept="image/*" style="display: none;" onchange="handleAvatarUpload(event)">
+                        
+                        <div class="profile-name-container" onclick="enableNameEdit()" id="nameContainer">
+                            <div class="profile-name" id="profileNameText">Гость</div>
+                            <div class="edit-name-icon">✎</div>
+                            <input type="text" class="edit-name-input" id="profileNameInput" onblur="saveName()" onkeypress="handleNameEnter(event)">
+                        </div>
+                        
+                        <div class="profile-subtitle" id="profileStatusText">Путешественник</div>
+
+                        <div class="profile-stats">
+                            <div class="stat-item">
+                                <div class="stat-value" id="statFavCount">0</div>
+                                <div class="stat-label" id="lblFavCount">В избранном</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-value" id="statDaysCount">1</div>
+                                <div class="stat-label" id="lblDaysCount">День в Москве</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="settings-list">
+                        <div class="settings-item" onclick="toggleLanguage()">
+                            <div class="settings-left">
+                                <div class="settings-icon">🌐</div>
+                                <div class="settings-text" id="lblLang">Язык приложения</div>
+                            </div>
+                            <div class="settings-value" id="valLang">Русский</div>
+                        </div>
+                        <div class="settings-item danger" onclick="resetApp()">
+                            <div class="settings-left">
+                                <div class="settings-icon">🚪</div>
+                                <div class="settings-text" id="lblReset">Пройти анкету заново</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- НИЖНЕЕ МЕНЮ -->
+        <div class="bottom-nav">
+            <div class="nav-item active" onclick="switchTab('home')">
+                <div class="nav-dot">Г</div> <span id="navHome">Главная</span>
+            </div>
+            <div class="nav-item" onclick="switchTab('map')">
+                <div class="nav-dot">К</div> <span id="navMap">Карта</span>
+            </div>
+            <div class="nav-item" onclick="switchTab('favorites')">
+                <div class="nav-dot">И</div> <span id="navFav">Избранное</span>
+            </div>
+            <div class="nav-item" onclick="switchTab('profile')">
+                <div class="nav-dot">П</div> <span id="navProf">Профиль</span>
+            </div>
+        </div>
+
+        <!-- МОДАЛЬНОЕ ОКНО -->
+        <div class="modal-overlay" id="placeModal" onclick="closeModal(event)">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <div class="modal-close" onclick="closeModal()">×</div>
+                <div class="modal-title" id="modalTitle">Название</div>
+                <div class="modal-address" id="modalAddress">Адрес</div>
+                
+                <div class="modal-detail-row">
+                    <div class="modal-detail-label" id="lblModalCategory">Категория</div>
+                    <div class="modal-detail-value" id="modalCategory">Категория</div>
+                </div>
+                <div class="modal-detail-row">
+                    <div class="modal-detail-label" id="lblModalRating">Рейтинг</div>
+                    <div class="modal-detail-value" id="modalRating">4.8</div>
+                </div>
+                <div class="modal-detail-row">
+                    <div class="modal-detail-label" id="lblModalRooms">Закрытые комнаты</div>
+                    <div class="modal-detail-value" id="modalClosedRooms">Да</div>
+                </div>
+                <div class="modal-detail-row">
+                    <div class="modal-detail-label" id="lblModalPrayer">Место для намаза</div>
+                    <div class="modal-detail-value" id="modalPrayerSpace">Да</div>
+                </div>
+                <div class="modal-detail-row">
+                    <div class="modal-detail-label" id="lblModalFeatures">Особенности</div>
+                    <div class="modal-detail-value" id="modalFeatures">...</div>
+                </div>
+
+                <button class="modal-fav-btn" id="modalFavBtn" onclick="toggleFavoriteFromModal()">
+                    ♡ Добавить в избранное
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="places.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
