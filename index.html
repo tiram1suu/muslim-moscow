@@ -7,33 +7,56 @@
     
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="app">
 
         <div class="onboarding-screen" id="onboardingScreen">
-            <div class="onboarding-header">
-                <h2 id="obTitle">Добро пожаловать!</h2>
-                <p id="obSubtitle">Ответьте на пару вопросов, чтобы мы настроили приложение под вас.</p>
+            <div class="onboarding-step active" id="step-welcome">
+                <div class="onboarding-welcome-text">
+                    <h1 id="obWelcomeTitle">Добро пожаловать</h1>
+                    <p id="obWelcomeDesc">Muslim Moscow - ваш персональный гид по мусульманской инфраструктуре столицы. Мы поможем найти места для молитвы, халяльную еду и многое другое.</p>
+                </div>
+                <div class="onboarding-footer">
+                    <button class="btn-primary" onclick="nextOnboardingStep('step-welcome', 'step-visit')" id="btnStart">Начать</button>
+                </div>
             </div>
-            <div class="onboarding-step active" id="step1">
-                <button class="option-btn" data-value="tourist" id="btnTourist">Я турист / впервые в Москве</button>
-                <button class="option-btn" data-value="local" id="btnLocal">Я живу в Москве</button>
-            </div>
-            <div class="onboarding-step" id="step2">
-                <button class="option-btn" data-value="male" id="btnMale">Мужчина</button>
-                <button class="option-btn" data-value="female" id="btnFemale">Женщина</button>
-            </div>
-            <div class="onboarding-footer">
-                <button class="btn-primary" id="nextBtn" disabled>Далее</button>
-            </div>
-        </div>
 
-        <div class="guide-banner hidden" id="guideBanner">
-            <span id="bannerText">🎯 Первые 22 дня: персональный гид по Москве</span>
-            <button id="closeGuide">×</button>
+            <div class="onboarding-step" id="step-visit">
+                <h2 id="obVisitTitle">Вы впервые в Москве?</h2>
+                <div class="options-container">
+                    <button class="option-btn" data-value="first" onclick="selectOption(this, 'visit')" id="btnFirstVisit">Да, я здесь впервые</button>
+                    <button class="option-btn" data-value="frequent" onclick="selectOption(this, 'visit')" id="btnFrequentVisit">Нет, я уже был(а) здесь</button>
+                </div>
+                <div class="onboarding-footer">
+                    <button class="btn-primary" id="nextBtnVisit" disabled onclick="handleVisitStep()">Далее</button>
+                </div>
+            </div>
+
+            <div class="onboarding-step" id="step-guide">
+                <h2 id="obGuideTitle">Нужен ли вам персональный гид?</h2>
+                <p id="obGuideDesc" class="onboarding-desc">Мы можем подготовить для вас список первых важных мест: где поесть, помолиться и купить продукты.</p>
+                <div class="options-container">
+                    <button class="option-btn" data-value="yes" onclick="selectOption(this, 'guide')" id="btnGuideYes">Да, это будет полезно</button>
+                    <button class="option-btn" data-value="no" onclick="selectOption(this, 'guide')" id="btnGuideNo">Нет, спасибо</button>
+                </div>
+                <div class="onboarding-footer">
+                    <button class="btn-primary" id="nextBtnGuide" disabled onclick="handleGuideStep()">Далее</button>
+                </div>
+            </div>
+
+            <div class="onboarding-step" id="step-gender">
+                <h2 id="obGenderTitle">Ваш пол</h2>
+                <p id="obGenderDesc" class="onboarding-desc">Это поможет нам настроить приложение под ваши потребности (например, скрыть женские салоны).</p>
+                <div class="options-container">
+                    <button class="option-btn" data-value="male" onclick="selectOption(this, 'gender')" id="btnMale">Мужчина</button>
+                    <button class="option-btn" data-value="female" onclick="selectOption(this, 'gender')" id="btnFemale">Женщина</button>
+                </div>
+                <div class="onboarding-footer">
+                    <button class="btn-primary" id="nextBtnGender" disabled onclick="finishOnboarding()">Завершить</button>
+                </div>
+            </div>
         </div>
 
         <div class="app-header">
@@ -49,9 +72,18 @@
         <div class="app-content" id="appContent">
             
             <div class="tab-content active" id="tab-home">
+                
                 <div class="greeting">
                     <h1 id="greetTitle">Ассаляму алейкум</h1>
                     <p id="greetSubtitle">Персональный гид по городу</p>
+                </div>
+
+                <div class="guide-banner hidden" id="homeGuideBanner" onclick="openFullGuide()">
+                    <div class="guide-banner-text">
+                        <strong id="guideBannerTitle">Гид на первые дни</strong>
+                        <span id="guideBannerDesc">Ваш план адаптации</span>
+                    </div>
+                    <button id="closeGuideBtn" onclick="closeHomeGuide(event)">×</button>
                 </div>
 
                 <div class="search-container">
@@ -59,7 +91,6 @@
                         <div class="search-icon"></div>
                         <input type="text" id="searchInput" placeholder="Поиск по названию или адресу..." autocomplete="off">
                     </div>
-
                     <div class="search-dropdown" id="searchDropdown"></div>
                 </div>
 
@@ -98,7 +129,8 @@
                 </div>
 
                 <div class="section-title" id="recommendationsTitle"><span id="recTitle">Рекомендуем</span> <span id="recSub">рядом</span></div>
-                <div class="places-list" id="placesList"></div>  
+                <div class="places-list" id="placesList"></div>
+                <div class="hint" id="hintText">Нажмите на карточку, чтобы узнать подробности.</div>
             </div>
 
             <div class="tab-content" id="tab-map">
@@ -108,7 +140,6 @@
                     <div class="filter-btn" data-filter="Мечети">Мечети</div>
                     <div class="filter-btn" data-filter="Халяль еда">Еда</div>
                     <div class="filter-btn" data-filter="Супермаркеты">Магазины</div>
-                    
                     <div class="filter-btn" data-filter="Beauty салоны" data-gender="female">Beauty</div>
                 </div>
                 <div class="map-bottom-card" id="mapBottomCard">
@@ -129,7 +160,7 @@
                     <div class="profile-header-card">
                         <div class="avatar-wrapper" onclick="document.getElementById('avatarInput').click()">
                             <div class="avatar-circle" id="avatarCircle">
-                                <span id="avatarPlaceholder">👤</span>
+                                <span id="avatarPlaceholder">Г</span>
                                 <img id="avatarImage" style="display: none;" src="" alt="Profile">
                             </div>
                             <div class="edit-icon">✎</div>
@@ -159,14 +190,14 @@
                     <div class="settings-list">
                         <div class="settings-item" onclick="toggleLanguage()">
                             <div class="settings-left">
-                                <div class="settings-icon">🌐︎</div>
+                                <div class="settings-icon" style="font-family: sans-serif;">🌐︎</div>
                                 <div class="settings-text" id="lblLang">Язык приложения</div>
                             </div>
                             <div class="settings-value" id="valLang">Русский</div>
                         </div>
                         <div class="settings-item danger" onclick="resetApp()">
                             <div class="settings-left">
-                                <div class="settings-icon">↺</div>
+                                <div class="settings-icon" style="font-family: sans-serif; font-size: 25px;">↺</div>
                                 <div class="settings-text" id="lblReset">Пройти анкету заново</div>
                             </div>
                         </div>
@@ -177,16 +208,20 @@
 
         <div class="bottom-nav">
             <div class="nav-item active" onclick="switchTab('home')">
-                <div class="nav-dot">Г</div> <span id="navHome">Главная</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                <span id="navHome">Главная</span>
             </div>
             <div class="nav-item" onclick="switchTab('map')">
-                <div class="nav-dot">К</div> <span id="navMap">Карта</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="1 6 8 3 16 6 23 3 23 18 16 21 8 18 1 21 1 6"></polygon><line x1="8" y1="3" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="21"></line></svg>
+                <span id="navMap">Карта</span>
             </div>
             <div class="nav-item" onclick="switchTab('favorites')">
-                <div class="nav-dot">И</div> <span id="navFav">Избранное</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
+                <span id="navFav">Избранное</span>
             </div>
             <div class="nav-item" onclick="switchTab('profile')">
-                <div class="nav-dot">П</div> <span id="navProf">Профиль</span>
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <span id="navProf">Профиль</span>
             </div>
         </div>
 
@@ -218,8 +253,54 @@
                 </div>
 
                 <button class="modal-fav-btn" id="modalFavBtn" onclick="toggleFavoriteFromModal()">
-                    ♡ Добавить в избранное
+                    Добавить в избранное
                 </button>
+            </div>
+        </div>
+
+        <div class="guide-screen" id="guideScreen">
+            <div class="guide-header">
+                <button class="guide-back" onclick="closeFullGuide()">←</button>
+                <h2 id="guideMainTitle">Гид на первые дни</h2>
+            </div>
+            <div class="guide-content">
+                <p class="guide-intro" id="guideIntroText">Ваш персональный план адаптации в Москве. Сохраняйте шаги, чтобы ничего не забыть.</p>
+
+                <div class="guide-step-card" onclick="openGuideCategory('Халяль еда')">
+                    <div class="guide-icon">1</div>
+                    <div class="guide-step-info">
+                        <h3 id="guideStep1Title">Где поесть халяль</h3>
+                        <p id="guideStep1Desc">Проверенные рестораны и кафе рядом с вами</p>
+                    </div>
+                    <div class="guide-arrow">→</div>
+                </div>
+
+                <div class="guide-step-card" onclick="openGuideCategory('Мечети')">
+                    <div class="guide-icon">2</div>
+                    <div class="guide-step-info">
+                        <h3 id="guideStep2Title">Места для молитвы</h3>
+                        <p id="guideStep2Desc">Мечети и молельные комнаты с омовением</p>
+                    </div>
+                    <div class="guide-arrow">→</div>
+                </div>
+
+                <div class="guide-step-card" onclick="openGuideCategory('Супермаркеты')">
+                    <div class="guide-icon">3</div>
+                    <div class="guide-step-info">
+                        <h3 id="guideStep3Title">Халяль-продукты</h3>
+                        <p id="guideStep3Desc">Магазины с сертифицированными продуктами</p>
+                    </div>
+                    <div class="guide-arrow">→</div>
+                </div>
+
+                <div class="guide-step-card" onclick="alert('Информация о SIM-картах и экстренных службах будет добавлена позже.')">
+                    <div class="guide-icon">4</div>
+                    <div class="guide-step-info">
+                        <h3 id="guideStep4Title">Связь и контакты</h3>
+                        <p id="guideStep4Desc">SIM-карта, экстренные службы, полезные ссылки</p>
+                    </div>
+                    <div class="guide-arrow">→</div>
+                </div>
             </div>
         </div>
 
