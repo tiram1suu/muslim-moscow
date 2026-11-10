@@ -31,13 +31,11 @@
             </div>
         </div>
 
-        <!-- ПЛАШКА 22 ДНЯ -->
         <div class="guide-banner hidden" id="guideBanner">
             <span id="bannerText">🎯 Первые 22 дня: персональный гид по Москве</span>
             <button id="closeGuide">×</button>
         </div>
 
-        <!-- ШАПКА -->
         <div class="app-header">
             <div class="header">
                 <div class="logo">Muslim <span>Moscow</span></div>
@@ -48,10 +46,8 @@
             </div>
         </div>
 
-        <!-- КОНТЕНТ -->
         <div class="app-content" id="appContent">
             
-            <!-- ВКЛАДКА: ГЛАВНАЯ -->
             <div class="tab-content active" id="tab-home">
                 <div class="greeting">
                     <h1 id="greetTitle">Ассаляму алейкум</h1>
@@ -81,7 +77,6 @@
                 <div class="section-title"><span id="catTitle">Категории</span> <span id="catAll">все</span></div>
                 <div class="categories" id="categoriesContainer"></div>
 
-                <!-- ПЛАШКИ -->
                 <div class="daily-benefits">
                     <div class="benefit-item">
                         <div class="benefit-label" id="lblPrayer">Намаз</div>
@@ -104,7 +99,6 @@
                 <div class="places-list" id="placesList"></div>  
             </div>
 
-            <!-- КАРТА -->
             <div class="tab-content" id="tab-map">
                 <div id="map"></div>
                 <div class="map-overlay-filters" id="mapOverlayFilters">
@@ -123,13 +117,11 @@
                 </div>
             </div>
 
-            <!-- ИЗБРАННОЕ -->
             <div class="tab-content" id="tab-favorites">
                 <div class="section-title" style="padding-top: 20px;"><span id="favTitle">Ваши места</span> <span id="favSub">сохранено</span></div>
                 <div class="places-list" id="favoritesList"></div>
             </div>
 
-            <!--  ПРОФИЛЬ -->
             <div class="tab-content" id="tab-profile">
                 <div class="profile-container">
                     <div class="profile-header-card">
@@ -181,7 +173,6 @@
             </div>
         </div>
 
-        <!-- НИЖНЕЕ МЕНЮ -->
         <div class="bottom-nav">
             <div class="nav-item active" onclick="switchTab('home')">
                 <div class="nav-dot">Г</div> <span id="navHome">Главная</span>
@@ -197,7 +188,6 @@
             </div>
         </div>
 
-        <!-- МОДАЛЬНОЕ ОКНО -->
         <div class="modal-overlay" id="placeModal" onclick="closeModal(event)">
             <div class="modal-content" onclick="event.stopPropagation()">
                 <div class="modal-close" onclick="closeModal()">×</div>
