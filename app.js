@@ -315,13 +315,27 @@ function applyLanguage() {
       .map((cat) => {
         if (cat === "Beauty салоны" && userData.gender === "male") return "";
 
-        const letters = catShortNames[cat] || cat.substring(0, 2).toUpperCase();
         let displayName = cat;
-        if (cat === "Мечети") displayName = t("catMosques");
-        if (cat === "Халяль еда") displayName = t("catFood");
-        if (cat === "Супермаркеты") displayName = t("catShops");
-        if (cat === "Beauty салоны") displayName = t("catBeauty");
-        return `<div class="category-item" onclick="filterByCategory('${cat}')"><div class="cat-icon">${letters}</div><div class="cat-label">${displayName}</div></div>`;
+        let imgSrc = "";
+
+        if (cat === "Мечети") {
+          displayName = t("catMosques");
+          imgSrc = "imgs/mosque.jpeg";
+        } else if (cat === "Халяль еда") {
+          displayName = t("catFood");
+          imgSrc = "imgs/food.jpeg";
+        } else if (cat === "Супермаркеты") {
+          displayName = t("catShops");
+          imgSrc = "imgs/shops.jpeg";
+        } else if (cat === "Beauty салоны") {
+          displayName = t("catBeauty");
+        }
+
+        const iconHtml = imgSrc
+          ? `<img src="${imgSrc}" alt="${displayName}" style="width: 100%; height: 100%; object-fit: cover;">`
+          : `<span>${catShortNames[cat] || cat.substring(0, 2).toUpperCase()}</span>`;
+
+        return `<div class="category-item" onclick="filterByCategory('${cat}')"><div class="cat-icon">${iconHtml}</div><div class="cat-label">${displayName}</div></div>`;
       })
       .join("");
   }

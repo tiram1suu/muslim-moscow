@@ -604,8 +604,8 @@ body {
 }
 
 .cat-icon {
-    width: 60px;
-    height: 60px;
+    width: 64px;
+    height: 64px;
     background: #f4f6f8;
     border-radius: 20px;
     display: flex;
@@ -614,6 +614,7 @@ body {
     font-size: 20px;
     color: #0d3b2e;
     border: 1px solid #e3e8ef;
+    overflow: hidden;
 }
 
 .cat-label {
