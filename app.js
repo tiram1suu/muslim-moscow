@@ -65,7 +65,7 @@ const translations = {
     lblModalRating: "Оценка посетителей",
     lblModalRooms: "Отдельные помещения",
     lblModalPrayer: "Место для намаза",
-    lblModalFeatures: "Что есть на месте",
+    lblModalFeatures: "Особенности",
     yes: "Есть",
     no: "Нет",
     addFav: "Сохранить в избранное",
