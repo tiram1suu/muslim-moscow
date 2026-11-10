@@ -453,9 +453,68 @@ document.querySelectorAll("#homeFilters .filter-btn").forEach((btn) => {
   });
 });
 
+const searchDropdown = document.getElementById("searchDropdown");
+
 searchInput.addEventListener("input", (e) => {
-  currentSearch = e.target.value;
-  updateView();
+  const query = e.target.value.toLowerCase().trim();
+
+  if (query.length === 0) {
+    searchDropdown.classList.remove("active");
+    currentSearch = "";
+    updateView();
+    return;
+  }
+
+  let results = placesData.filter((p) => {
+    const name = currentLang === "en" && p.nameEn ? p.nameEn : p.name;
+    const address =
+      currentLang === "en" && p.addressEn ? p.addressEn : p.address;
+    return (
+      name.toLowerCase().includes(query) ||
+      address.toLowerCase().includes(query)
+    );
+  });
+
+  if (userData.gender === "male") {
+    results = results.filter((p) => p.category !== "Beauty салоны");
+  }
+
+  results = results.slice(0, 5);
+
+  if (results.length > 0) {
+    searchDropdown.innerHTML = results
+      .map((place) => {
+        const name =
+          currentLang === "en" && place.nameEn ? place.nameEn : place.name;
+        const address =
+          currentLang === "en" && place.addressEn
+            ? place.addressEn
+            : place.address;
+        return `
+                <div class="search-result-item" onclick="selectSearchResult(${place.id})">
+                    <h4>${name}</h4>
+                    <p>${address}</p>
+                </div>
+            `;
+      })
+      .join("");
+    searchDropdown.classList.add("active");
+  } else {
+    searchDropdown.innerHTML = `<div class="search-result-empty">${t("notFound")}</div>`;
+    searchDropdown.classList.add("active");
+  }
+});
+
+window.selectSearchResult = function (id) {
+  searchDropdown.classList.remove("active");
+  searchInput.value = "";
+  openPlaceDetails(id);
+};
+
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".search-container")) {
+    searchDropdown.classList.remove("active");
+  }
 });
 
 window.filterByCategory = function (category) {
