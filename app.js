@@ -367,9 +367,7 @@ function renderPlaces(placesArray, container) {
                 <p>${displayAddress}</p>
             </div>
             <div class="place-actions">
-                <div class="place-badge ${place.hasClosedRooms ? "" : "blue"}">
-                    ${place.hasClosedRooms ? (currentLang === "ru" ? "Есть комнаты" : "Has rooms") : currentLang === "ru" ? "Открыто" : "Open"}
-                </div>
+                ${place.hasClosedRooms ? `<div class="place-badge">${currentLang === "ru" ? "Есть комнаты" : "Has rooms"}</div>` : ""}
                 <button class="fav-btn ${isFav ? "active" : ""}" onclick="toggleFavorite(${place.id}); event.stopPropagation();">
                     ${isFav ? "♥" : "♡"}
                 </button>
@@ -971,7 +969,7 @@ document.addEventListener("DOMContentLoaded", () => {
   applyLanguage();
   checkUserData();
   updateView();
-  updateGenderVisibility(); // Применяем фильтр по полу при загрузке
+  updateGenderVisibility();
   setTimeout(initMaps, 100);
   getLocationAndUpdate();
   setInterval(updateLiveData, 60000);

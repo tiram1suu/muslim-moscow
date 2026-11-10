@@ -23,7 +23,7 @@ const placesData = [
     addressEn: "Bolshaya Tatarskaya St, 28, bld. 1–2",
     category: "Мечети",
     features: ["Старейшая мечеть Москвы (1823)"],
-    rating: 4.9, // 2ГИС
+    rating: 4.9, 
     hasClosedRooms: false,
     hasPrayerSpace: true,
     coordsVerified: false,
@@ -53,7 +53,7 @@ const placesData = [
     addressEn: "Khachaturyana St, 8",
     category: "Мечети",
     features: ["Комплекс в Отрадном", "Две мечети рядом"],
-    rating: 4.8, // 2ГИС, 160 оценок («Ярдям»)
+    rating: 4.8, 
     hasClosedRooms: false,
     hasPrayerSpace: true,
     coordsVerified: false,
@@ -73,7 +73,7 @@ const placesData = [
       "Хинкал",
       "Сертификат Совета муфтиев России",
     ],
-    rating: 4.7, // Яндекс, 3197 оценок
+    rating: 4.7, 
     hasClosedRooms: false,
     hasPrayerSpace: false,
     coordsVerified: false,
@@ -88,7 +88,7 @@ const placesData = [
     addressEn: "Budyonnogo Ave, 33",
     category: "Халяль еда",
     features: ["Ближневосточная кухня", "Сертификат «Халяль»"],
-    rating: 4.9, // Яндекс, 2532 оценки
+    rating: 4.9, 
     hasClosedRooms: false,
     hasPrayerSpace: false,
     coordsVerified: false,
@@ -103,7 +103,7 @@ const placesData = [
     addressEn: "Glinishchevsky Ln, 3",
     category: "Халяль еда",
     features: ["Ливанская кухня", "Сертификат «Халяль»"],
-    rating: 4.9, // Яндекс, 3858 оценок
+    rating: 4.9,
     hasClosedRooms: false,
     hasPrayerSpace: false,
     coordsVerified: false,
