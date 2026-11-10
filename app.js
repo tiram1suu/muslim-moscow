@@ -73,7 +73,7 @@ const translations = {
     mapBtn: "Подробнее",
 
     catMosques: "Мечети",
-    catFood: "Халяльная еда",
+    catFood: "Рестораны",
     catShops: "Магазины",
     catBeauty: "Салоны красоты",
 
