@@ -178,7 +178,7 @@ const translations = {
     mapBtn: "View details",
 
     catMosques: "Mosques",
-    catFood: "Halal food",
+    catFood: "Restaurants",
     catShops: "Grocery stores",
     catBeauty: "Beauty salons",
 
