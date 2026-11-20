@@ -13,51 +13,58 @@
     <div class="app">
 
         <div class="onboarding-screen" id="onboardingScreen">
-            <div class="onboarding-step active" id="step-welcome">
-                <div class="onboarding-welcome-text">
-                    <h1 id="obWelcomeTitle">Добро пожаловать</h1>
-                    <p id="obWelcomeDesc">Muslim Moscow - ваш персональный гид по мусульманской инфраструктуре столицы. Мы поможем найти места для молитвы, халяльную еду и многое другое.</p>
-                </div>
-                <div class="onboarding-footer">
-                    <button class="btn-primary" onclick="nextOnboardingStep('step-welcome', 'step-visit')" id="btnStart">Начать</button>
-                </div>
-            </div>
+            <button class="ob-skip" id="obSkip" onclick="finishOnboarding()">Пропустить</button>
+            <div class="ob-stack">
 
-            <div class="onboarding-step" id="step-visit">
-                <h2 id="obVisitTitle">Вы впервые в Москве?</h2>
-                <div class="options-container">
-                    <button class="option-btn" data-value="first" onclick="selectOption(this, 'visit')" id="btnFirstVisit">Да, я здесь впервые</button>
-                    <button class="option-btn" data-value="frequent" onclick="selectOption(this, 'visit')" id="btnFrequentVisit">Нет, я уже был(а) здесь</button>
+                <div class="onboarding-step active" id="step-welcome">
+                    <div class="ob-typing"><span></span><span></span><span></span></div>
+                    <div class="ob-msg">
+                        <strong id="obWelcomeTitle">Ассаляму алейкум</strong>
+                        <span id="obWelcomeDesc">Это городской гид Muslim Moscow. Покажу, где рядом мечеть, халяльная еда и места для намаза.</span>
+                    </div>
+                    <div class="options-container">
+                        <button class="option-btn" onclick="finishOnboarding()" id="btnSkipOb">Перейти в приложение</button>
+                        <button class="option-btn" onclick="nextOnboardingStep('step-welcome', 'step-visit')" id="btnPersonalize">Настроить под себя</button>
+                    </div>
                 </div>
-                <div class="onboarding-footer">
-                    <button class="btn-primary" id="nextBtnVisit" disabled onclick="handleVisitStep()">Далее</button>
-                </div>
-            </div>
 
-            <div class="onboarding-step" id="step-guide">
-                <h2 id="obGuideTitle">Нужен ли вам персональный гид?</h2>
-                <p id="obGuideDesc" class="onboarding-desc">Мы можем подготовить для вас список первых важных мест: где поесть, помолиться и купить продукты.</p>
-                <div class="options-container">
-                    <button class="option-btn" data-value="yes" onclick="selectOption(this, 'guide')" id="btnGuideYes">Да, это будет полезно</button>
-                    <button class="option-btn" data-value="no" onclick="selectOption(this, 'guide')" id="btnGuideNo">Нет, спасибо</button>
+                <div class="onboarding-step" id="step-visit">
+                    <div class="ob-typing"><span></span><span></span><span></span></div>
+                    <div class="ob-msg">
+                        <strong id="obVisitTitle">Вы впервые в Москве?</strong>
+                    </div>
+                    <div class="options-container">
+                        <button class="option-btn" data-value="first" onclick="selectOption(this, 'visit')" id="btnFirstVisit">Да, я здесь впервые</button>
+                        <button class="option-btn" data-value="frequent" onclick="selectOption(this, 'visit')" id="btnFrequentVisit">Нет, уже был(а) / живу здесь</button>
+                    </div>
                 </div>
-                <div class="onboarding-footer">
-                    <button class="btn-primary" id="nextBtnGuide" disabled onclick="handleGuideStep()">Далее</button>
-                </div>
-            </div>
 
-            <div class="onboarding-step" id="step-gender">
-                <h2 id="obGenderTitle">Ваш пол</h2>
-                <p id="obGenderDesc" class="onboarding-desc">Это поможет нам настроить приложение под ваши потребности (например, скрыть женские салоны).</p>
-                <div class="options-container">
-                    <button class="option-btn" data-value="male" onclick="selectOption(this, 'gender')" id="btnMale">Мужчина</button>
-                    <button class="option-btn" data-value="female" onclick="selectOption(this, 'gender')" id="btnFemale">Женщина</button>
+                <div class="onboarding-step" id="step-gender">
+                    <div class="ob-typing"><span></span><span></span><span></span></div>
+                    <div class="ob-msg">
+                        <strong id="obGenderTitle">Ваш пол</strong>
+                        <span id="obGenderDesc">Это поможет нам настроить приложение под ваши потребности (например, скрыть женские салоны).</span>
+                    </div>
+                    <div class="options-container">
+                        <button class="option-btn" data-value="male" onclick="selectOption(this, 'gender')" id="btnMale">Мужчина</button>
+                        <button class="option-btn" data-value="female" onclick="selectOption(this, 'gender')" id="btnFemale">Женщина</button>
+                    </div>
                 </div>
-                <div class="onboarding-footer">
-                    <button class="btn-primary" id="nextBtnGender" disabled onclick="finishOnboarding()">Завершить</button>
+
+                <div class="onboarding-step" id="step-tip">
+                    <div class="ob-typing"><span></span><span></span><span></span></div>
+                    <div class="ob-msg">
+                        <strong id="obTipTitle">Вы в Москве впервые</strong>
+                        <span id="obTipDesc">Поэтому на первые 22 дня у вас будет чеклист: он поможет освоиться и покажет, где рядом мечеть, халяль-кафе и супермаркет.</span>
+                    </div>
+                    <div class="options-container">
+                        <button class="option-btn" onclick="showChecklistSpot()" id="btnTipWhere">Где он?</button>
+                    </div>
                 </div>
+
             </div>
         </div>
+
 
         <div class="app-header">
             <div class="header">
@@ -78,14 +85,6 @@
                     <p id="greetSubtitle">Персональный гид по городу</p>
                 </div>
 
-                <div class="guide-banner hidden" id="homeGuideBanner" onclick="openFullGuide()">
-                    <div class="guide-banner-text">
-                        <strong id="guideBannerTitle">Гид на первые дни</strong>
-                        <span id="guideBannerDesc">Ваш план адаптации</span>
-                    </div>
-                    <button id="closeGuideBtn" onclick="closeHomeGuide(event)">×</button>
-                </div>
-
                 <div class="search-container">
                     <div class="search">
                         <div class="search-icon"></div>
@@ -104,6 +103,10 @@
                     <div class="filter-btn" data-filter="Мечети" data-key="mosques">Мечети</div>
                     <div class="filter-btn" data-filter="Халяль еда" data-key="food">Еда</div>
                     <div class="filter-btn" data-filter="Супермаркеты" data-key="shops">Магазины</div>
+                    <div class="filter-btn" data-filter="Аптеки" data-key="pharmacy">Аптеки</div>
+                    <div class="filter-btn" data-filter="Больницы" data-key="hospitals">Больницы</div>
+                    <div class="filter-btn" data-filter="МФЦ" data-key="mfc">МФЦ</div>
+                    <div class="filter-btn" data-filter="Посольства" data-key="embassies">Посольства</div>
                     <div class="filter-btn" data-filter="Beauty салоны" data-key="beauty" data-gender="female">Beauty</div>
                 </div>
 
@@ -140,6 +143,10 @@
                     <div class="filter-btn" data-filter="Мечети">Мечети</div>
                     <div class="filter-btn" data-filter="Халяль еда">Еда</div>
                     <div class="filter-btn" data-filter="Супермаркеты">Магазины</div>
+                    <div class="filter-btn" data-filter="Аптеки">Аптеки</div>
+                    <div class="filter-btn" data-filter="Больницы">Больницы</div>
+                    <div class="filter-btn" data-filter="МФЦ">МФЦ</div>
+                    <div class="filter-btn" data-filter="Посольства">Посольства</div>
                     <div class="filter-btn" data-filter="Beauty салоны" data-gender="female">Beauty</div>
                 </div>
                 <div class="map-bottom-card" id="mapBottomCard">
@@ -194,6 +201,12 @@
                                 <div class="settings-text" id="lblLang">Язык приложения</div>
                             </div>
                             <div class="settings-value" id="valLang">Русский</div>
+                        </div>
+                        <div class="settings-item" onclick="openChecklist('sos')">
+                            <div class="settings-left">
+                                <div class="settings-icon" style="font-family: sans-serif;">✆</div>
+                                <div class="settings-text" id="lblUseful">Номера и приложения</div>
+                            </div>
                         </div>
                         <div class="settings-item danger" onclick="resetApp()">
                             <div class="settings-left">
@@ -252,55 +265,42 @@
                     <div class="modal-detail-value" id="modalFeatures">...</div>
                 </div>
 
+                <div class="modal-links" id="modalLinks"></div>
+
                 <button class="modal-fav-btn" id="modalFavBtn" onclick="toggleFavoriteFromModal()">
                     Добавить в избранное
                 </button>
             </div>
         </div>
 
-        <div class="guide-screen" id="guideScreen">
-            <div class="guide-header">
-                <button class="guide-back" onclick="closeFullGuide()">←</button>
-                <h2 id="guideMainTitle">Гид на первые дни</h2>
-            </div>
-            <div class="guide-content">
-                <p class="guide-intro" id="guideIntroText">Ваш персональный план адаптации в Москве. Сохраняйте шаги, чтобы ничего не забыть.</p>
+        <div class="fab-wrap hidden" id="checklistFab">
+            <div class="fab-tip" id="fabTip">Нажмите сюда, чтобы открыть чеклист</div>
+            <button class="fab-btn" onclick="openChecklist()">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                <span class="fab-text"><b id="fabTitle">Чеклист</b><small id="fabDay">День 1 из 22</small></span>
+            </button>
+        </div>
 
-                <div class="guide-step-card" onclick="openGuideCategory('Халяль еда')">
-                    <div class="guide-icon">1</div>
-                    <div class="guide-step-info">
-                        <h3 id="guideStep1Title">Где поесть халяль</h3>
-                        <p id="guideStep1Desc">Проверенные рестораны и кафе рядом с вами</p>
-                    </div>
-                    <div class="guide-arrow">→</div>
+        <div class="modal-overlay" id="checklistModal" onclick="closeChecklist()">
+            <div class="modal-content" onclick="event.stopPropagation()">
+                <div class="modal-close" onclick="closeChecklist()">×</div>
+                <div class="modal-title" id="clTitle">Чеклист на первые дни</div>
+                <div class="modal-address" id="clSub" style="margin-bottom: 16px;"></div>
+
+                <div class="cl-tabs">
+                    <button class="cl-tab active" data-tab="nearby" onclick="setChecklistTab('nearby')" id="clTabNearby">Рядом</button>
+                    <button class="cl-tab" data-tab="sos" onclick="setChecklistTab('sos')" id="clTabSos">Номера</button>
+                    <button class="cl-tab" data-tab="apps" onclick="setChecklistTab('apps')" id="clTabApps">Приложения</button>
                 </div>
 
-                <div class="guide-step-card" onclick="openGuideCategory('Мечети')">
-                    <div class="guide-icon">2</div>
-                    <div class="guide-step-info">
-                        <h3 id="guideStep2Title">Места для молитвы</h3>
-                        <p id="guideStep2Desc">Мечети и молельные комнаты с омовением</p>
-                    </div>
-                    <div class="guide-arrow">→</div>
+                <div class="cl-pane" id="clPaneNearby">
+                    <div class="cl-progress"><div class="cl-bar" id="clBar"></div></div>
+                    <div class="cl-progress-label" id="clProgressLabel"></div>
+                    <div id="clList"></div>
+                    <div class="cl-hint" id="clHint"></div>
                 </div>
-
-                <div class="guide-step-card" onclick="openGuideCategory('Супермаркеты')">
-                    <div class="guide-icon">3</div>
-                    <div class="guide-step-info">
-                        <h3 id="guideStep3Title">Халяль-продукты</h3>
-                        <p id="guideStep3Desc">Магазины с сертифицированными продуктами</p>
-                    </div>
-                    <div class="guide-arrow">→</div>
-                </div>
-
-                <div class="guide-step-card" onclick="alert('Информация о SIM-картах и экстренных службах будет добавлена позже.')">
-                    <div class="guide-icon">4</div>
-                    <div class="guide-step-info">
-                        <h3 id="guideStep4Title">Связь и контакты</h3>
-                        <p id="guideStep4Desc">SIM-карта, экстренные службы, полезные ссылки</p>
-                    </div>
-                    <div class="guide-arrow">→</div>
-                </div>
+                <div class="cl-pane" id="clPaneSos" style="display:none"></div>
+                <div class="cl-pane" id="clPaneApps" style="display:none"></div>
             </div>
         </div>
 

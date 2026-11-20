@@ -1,19 +1,54 @@
 const translations = {
   ru: {
-    obWelcomeTitle: "Добро пожаловать!",
+    obWelcomeTitle: "Ассаляму алейкум",
     obWelcomeDesc:
-      "Muslim Moscow поможет вам освоиться в городе: найти мечеть, место для намаза, халяльную еду и всё необходимое для комфортной жизни в Москве.",
-    btnStart: "Давайте начнём",
+      "Это городской гид Muslim Moscow. Покажу, где рядом мечеть, халяльная еда и места для намаза.",
+    btnSkipOb: "Перейти в приложение",
+    obSkip: "Пропустить",
+    obTipTitle: "Вы в Москве впервые",
+    obTipDesc:
+      "Поэтому на первые 22 дня у вас будет чеклист: он поможет освоиться и покажет, где рядом мечеть, халяль-кафе и супермаркет.",
+    btnTipWhere: "Где он?",
+    fabTitle: "Чеклист",
+    fabDay: "День {n} из {total}",
+    fabTip: "Нажмите сюда, чтобы открыть чеклист",
+    clTitle: "Чеклист на первые дни",
+    clSub: "День {n} из {total}",
+    clMosque: "Ближайшая мечеть",
+    clFood: "Ближайшая халяльная еда",
+    clShop: "Ближайший супермаркет",
+    clOnMap: "На карте",
+    clProgress: "Готово: {done} из {total}",
+    clNoGeo:
+      "Не удалось определить, где вы находитесь, поэтому расстояния считаются от центра Москвы. Разрешите доступ к геолокации, и всё станет точнее.",
+    m: "м",
+    catHospitals: "Больницы",
+    catPharmacy: "Аптеки",
+    catEmbassy: "Посольства",
+    catMfc: "МФЦ",
+    lblUseful: "Номера и приложения",
+    clTitlePlain: "Полезное в Москве",
+    clSubPlain: "Что рядом, экстренные номера и нужные приложения.",
+    clTabNearby: "Рядом",
+    clTabSos: "Номера",
+    clTabApps: "Приложения",
+    clPharmacy: "Ближайшая аптека",
+    clHospital: "Ближайшая больница",
+    clMfc: "Ближайший МФЦ",
+    clEmbassy: "Ближайшее посольство",
+    clSearchMaps: "Найти в Яндекс Картах",
+    clOpenMaps: "Открыть",
+    linkYandex: "Яндекс Карты",
+    link2gis: "2ГИС",
+    sos112Name: "Единый номер экстренных служб",
+    sos112Desc: "Полиция, скорая, МЧС. Операторы часто говорят по-английски.",
+    sosCityName: "Справочная служба Правительства Москвы",
+    sosCityDesc: "Помощь по городским вопросам и документам.",
+    btnPersonalize: "Настроить под себя",
 
     obVisitTitle: "Вы впервые в Москве?",
     btnFirstVisit: "Да, приехал(а) впервые",
-    btnFrequentVisit: "Нет, уже бывал(а) здесь",
-
-    obGuideTitle: "Помочь вам освоиться в городе?",
-    obGuideDesc:
-      "Соберём для вас полезные места на первые дни: где поесть, помолиться и купить продукты.",
-    btnGuideYes: "Да, было бы здорово",
-    btnGuideNo: "Спасибо, разберусь сам(а)",
+    btnFrequentVisit: "Нет, уже был(а) / живу здесь",
 
     obGenderTitle: "Подберём места для вас",
     obGenderDesc:
@@ -85,41 +120,59 @@ const translations = {
     weatherCloudy: "облачно",
     weatherRain: "дождь",
     weatherSnow: "снег",
-
-    guideBannerTitle: "Москва - с чего начать?",
-    guideBannerDesc: "Полезное для первых дней",
-    guideMainTitle: "Добро пожаловать в Москву!",
-    guideIntroText:
-      "Собрали самое важное, что может пригодиться в первые дни. Выбирайте нужный раздел и находите подходящие места рядом.",
-
-    guideStep1Title: "Где поесть халяль?",
-    guideStep1Desc: "Кафе и рестораны, где можно вкусно поесть",
-
-    guideStep2Title: "Где совершить намаз?",
-    guideStep2Desc: "Мечети и молельные комнаты поблизости",
-
-    guideStep3Title: "Где купить продукты?",
-    guideStep3Desc: "Магазины с халяльными продуктами",
-
-    guideStep4Title: "Связь и полезные контакты",
-    guideStep4Desc: "SIM-карты, экстренные службы и нужные телефоны",
   },
 
   en: {
-    obWelcomeTitle: "Welcome!",
+    obWelcomeTitle: "Assalamu alaikum",
     obWelcomeDesc:
-      "Muslim Moscow helps you find your way around the city — from mosques and prayer spaces to halal food and everything else you might need.",
-    btnStart: "Let's get started",
+      "This is Muslim Moscow, a city guide. I'll show you nearby mosques, halal food and places to pray.",
+    btnSkipOb: "Go to the app",
+    obSkip: "Skip",
+    obTipTitle: "It's your first time in Moscow",
+    obTipDesc:
+      "So for your first 22 days you'll have a checklist: it helps you settle in and shows the nearest mosque, halal food and supermarket.",
+    btnTipWhere: "Where is it?",
+    fabTitle: "Checklist",
+    fabDay: "Day {n} of {total}",
+    fabTip: "Tap here to open your checklist",
+    clTitle: "Your first-days checklist",
+    clSub: "Day {n} of {total}",
+    clMosque: "Nearest mosque",
+    clFood: "Nearest halal food",
+    clShop: "Nearest supermarket",
+    clOnMap: "On map",
+    clProgress: "Done: {done} of {total}",
+    clNoGeo:
+      "We couldn't get your location, so distances are measured from central Moscow. Allow location access for more accurate results.",
+    m: "m",
+    catHospitals: "Hospitals",
+    catPharmacy: "Pharmacies",
+    catEmbassy: "Embassies",
+    catMfc: "Gov. services",
+    lblUseful: "Numbers & apps",
+    clTitlePlain: "Useful in Moscow",
+    clSubPlain: "What's nearby, emergency numbers and handy apps.",
+    clTabNearby: "Nearby",
+    clTabSos: "Numbers",
+    clTabApps: "Apps",
+    clPharmacy: "Nearest pharmacy",
+    clHospital: "Nearest hospital",
+    clMfc: "Nearest MFC (gov. services)",
+    clEmbassy: "Nearest embassy",
+    clSearchMaps: "Find in Yandex Maps",
+    clOpenMaps: "Open",
+    linkYandex: "Yandex Maps",
+    link2gis: "2GIS",
+    sos112Name: "Unified emergency number",
+    sos112Desc:
+      "Police, ambulance, rescue service. Operators often speak English.",
+    sosCityName: "Moscow Government hotline",
+    sosCityDesc: "Help with city services and paperwork.",
+    btnPersonalize: "Set it up for me",
 
     obVisitTitle: "Is this your first time in Moscow?",
     btnFirstVisit: "Yes, it's my first visit",
-    btnFrequentVisit: "No, I've been here before",
-
-    obGuideTitle: "Would you like a little help settling in?",
-    obGuideDesc:
-      "We can put together a handy list of places for your first few days — where to eat, pray and shop for groceries.",
-    btnGuideYes: "Yes, that would be great",
-    btnGuideNo: "No thanks, I'll manage",
+    btnFrequentVisit: "No, I've been here before / I live here",
 
     obGenderTitle: "Let's find the right places for you",
     obGenderDesc:
@@ -190,33 +243,46 @@ const translations = {
     weatherCloudy: "cloudy",
     weatherRain: "rainy",
     weatherSnow: "snowy",
-
-    guideBannerTitle: "New to Moscow?",
-    guideBannerDesc: "A few things to get you started",
-    guideMainTitle: "Welcome to Moscow!",
-    guideIntroText:
-      "We've gathered a few useful things to help you settle in. Choose a category and find the places you need nearby.",
-
-    guideStep1Title: "Where can I eat halal?",
-    guideStep1Desc: "Cafes and restaurants serving halal food",
-
-    guideStep2Title: "Where can I pray?",
-    guideStep2Desc: "Mosques and prayer spaces nearby",
-
-    guideStep3Title: "Where can I buy groceries?",
-    guideStep3Desc: "Stores with halal products",
-
-    guideStep4Title: "Staying connected",
-    guideStep4Desc: "SIM cards, emergency services and useful contacts",
   },
 };
 
-let currentLang = localStorage.getItem("muslim_lang");
-if (!currentLang) {
-  const browserLang = navigator.language || navigator.userLanguage;
-  currentLang = browserLang.startsWith("ru") ? "ru" : "en";
-  localStorage.setItem("muslim_lang", currentLang);
+const CAT_META = {
+  Мечети: { key: "catMosques", color: "#0d3b2e", img: "imgs/mosque.jpeg" },
+  "Халяль еда": { key: "catFood", color: "#d9822b", img: "imgs/food.jpeg" },
+  Супермаркеты: { key: "catShops", color: "#2f6fd0", img: "imgs/shops.jpeg" },
+  Аптеки: { key: "catPharmacy", color: "#2e9e6b", img: "imgs/apteka.jpg" },
+  Больницы: {
+    key: "catHospitals",
+    color: "#d64545",
+    img: "imgs/hospital.jpeg",
+  },
+  МФЦ: { key: "catMfc", color: "#1a8f96", img: "imgs/mfc.jpg" },
+  Посольства: { key: "catEmbassy", color: "#6b5bd2" },
+  "Beauty салоны": { key: "catBeauty", color: "#c9468a" },
+};
+
+function catLabel(cat) {
+  const m = CAT_META[cat];
+  return m ? t(m.key) : cat;
 }
+
+function hasCoords(p) {
+  return typeof p.lat === "number" && typeof p.lng === "number";
+}
+
+function detectDeviceLang() {
+  const langs =
+    navigator.languages && navigator.languages.length
+      ? navigator.languages
+      : [navigator.language || navigator.userLanguage || "en"];
+  return String(langs[0]).toLowerCase().startsWith("ru") ? "ru" : "en";
+}
+
+let currentLang =
+  localStorage.getItem("muslim_lang_manual") === "1"
+    ? localStorage.getItem("muslim_lang") || detectDeviceLang()
+    : detectDeviceLang();
+document.documentElement.lang = currentLang;
 
 function t(key) {
   return translations[currentLang][key] || key;
@@ -225,36 +291,23 @@ function t(key) {
 function applyLanguage() {
   document.getElementById("obWelcomeTitle").textContent = t("obWelcomeTitle");
   document.getElementById("obWelcomeDesc").textContent = t("obWelcomeDesc");
-  document.getElementById("btnStart").textContent = t("btnStart");
+  document.getElementById("btnSkipOb").textContent = t("btnSkipOb");
+  document.getElementById("obSkip").textContent = t("obSkip");
+  document.getElementById("obTipTitle").textContent = t("obTipTitle");
+  document.getElementById("obTipDesc").textContent = t("obTipDesc");
+  document.getElementById("btnTipWhere").textContent = t("btnTipWhere");
+  document.getElementById("fabTitle").textContent = t("fabTitle");
+  document.getElementById("fabTip").textContent = t("fabTip");
+  document.getElementById("clTitle").textContent = t("clTitle");
+  document.getElementById("btnPersonalize").textContent = t("btnPersonalize");
   document.getElementById("obVisitTitle").textContent = t("obVisitTitle");
   document.getElementById("btnFirstVisit").textContent = t("btnFirstVisit");
   document.getElementById("btnFrequentVisit").textContent =
     t("btnFrequentVisit");
-  document.getElementById("obGuideTitle").textContent = t("obGuideTitle");
-  document.getElementById("obGuideDesc").textContent = t("obGuideDesc");
-  document.getElementById("btnGuideYes").textContent = t("btnGuideYes");
-  document.getElementById("btnGuideNo").textContent = t("btnGuideNo");
   document.getElementById("obGenderTitle").textContent = t("obGenderTitle");
   document.getElementById("obGenderDesc").textContent = t("obGenderDesc");
   document.getElementById("btnMale").textContent = t("btnMale");
   document.getElementById("btnFemale").textContent = t("btnFemale");
-  document.getElementById("nextBtnVisit").textContent = t("btnNext");
-  document.getElementById("nextBtnGuide").textContent = t("btnNext");
-  document.getElementById("nextBtnGender").textContent = t("btnFinish");
-
-  document.getElementById("guideBannerTitle").textContent =
-    t("guideBannerTitle");
-  document.getElementById("guideBannerDesc").textContent = t("guideBannerDesc");
-  document.getElementById("guideMainTitle").textContent = t("guideMainTitle");
-  document.getElementById("guideIntroText").textContent = t("guideIntroText");
-  document.getElementById("guideStep1Title").textContent = t("guideStep1Title");
-  document.getElementById("guideStep1Desc").textContent = t("guideStep1Desc");
-  document.getElementById("guideStep2Title").textContent = t("guideStep2Title");
-  document.getElementById("guideStep2Desc").textContent = t("guideStep2Desc");
-  document.getElementById("guideStep3Title").textContent = t("guideStep3Title");
-  document.getElementById("guideStep3Desc").textContent = t("guideStep3Desc");
-  document.getElementById("guideStep4Title").textContent = t("guideStep4Title");
-  document.getElementById("guideStep4Desc").textContent = t("guideStep4Desc");
 
   document.getElementById("greetTitle").textContent = t("greetTitle");
   document.getElementById("greetSubtitle").textContent = t("greetSubtitle");
@@ -292,50 +345,32 @@ function applyLanguage() {
     t("lblModalFeatures");
   document.getElementById("mapCardBtn").textContent = t("mapBtn");
 
-  document.querySelectorAll("#homeFilters .filter-btn").forEach((btn) => {
-    const key = btn.dataset.key;
-    if (key === "all") btn.textContent = t("catAll") === "все" ? "Все" : "All";
-    if (key === "mosques") btn.textContent = t("catMosques");
-    if (key === "food") btn.textContent = t("catFood");
-    if (key === "shops") btn.textContent = t("catShops");
-    if (key === "beauty") btn.textContent = t("catBeauty");
-  });
-  document.querySelectorAll("#mapOverlayFilters .filter-btn").forEach((btn) => {
-    const key = btn.dataset.filter;
-    if (key === "Все") btn.textContent = t("catAll") === "все" ? "Все" : "All";
-    if (key === "Мечети") btn.textContent = t("catMosques");
-    if (key === "Халяль еда") btn.textContent = t("catFood");
-    if (key === "Супермаркеты") btn.textContent = t("catShops");
-    if (key === "Beauty салоны") btn.textContent = t("catBeauty");
-  });
+  document
+    .querySelectorAll(
+      "#homeFilters .filter-btn, #mapOverlayFilters .filter-btn",
+    )
+    .forEach((btn) => {
+      const f = btn.dataset.filter;
+      btn.textContent = f === "Все" ? t("catAll") : catLabel(f);
+    });
+  document.getElementById("lblUseful").textContent = t("lblUseful");
+  document.getElementById("clTabNearby").textContent = t("clTabNearby");
+  document.getElementById("clTabSos").textContent = t("clTabSos");
+  document.getElementById("clTabApps").textContent = t("clTabApps");
 
   if (typeof placesData !== "undefined") {
-    const uniqueCategories = [...new Set(placesData.map((p) => p.category))];
-    categoriesContainer.innerHTML = uniqueCategories
+    const present = new Set(placesData.map((p) => p.category));
+    categoriesContainer.innerHTML = Object.keys(CAT_META)
+      .filter((cat) => present.has(cat))
+      .filter((cat) => !(cat === "Beauty салоны" && userData.gender === "male"))
       .map((cat) => {
-        if (cat === "Beauty салоны" && userData.gender === "male") return "";
-
-        let displayName = cat;
-        let imgSrc = "";
-
-        if (cat === "Мечети") {
-          displayName = t("catMosques");
-          imgSrc = "imgs/mosque.jpeg";
-        } else if (cat === "Халяль еда") {
-          displayName = t("catFood");
-          imgSrc = "imgs/food.jpeg";
-        } else if (cat === "Супермаркеты") {
-          displayName = t("catShops");
-          imgSrc = "imgs/shops.jpeg";
-        } else if (cat === "Beauty салоны") {
-          displayName = t("catBeauty");
-        }
-
-        const iconHtml = imgSrc
-          ? `<img src="${imgSrc}" alt="${displayName}" style="width: 100%; height: 100%; object-fit: cover;">`
-          : `<span>${catShortNames[cat] || cat.substring(0, 2).toUpperCase()}</span>`;
-
-        return `<div class="category-item" onclick="filterByCategory('${cat}')"><div class="cat-icon">${iconHtml}</div><div class="cat-label">${displayName}</div></div>`;
+        const m = CAT_META[cat];
+        const label = catLabel(cat);
+        const inner = m.img
+          ? `<img src="${m.img}" alt="${label}">`
+          : `<span class="cat-glyph">${pinGlyph(cat, "#ffffff", 1.4)}</span>`;
+        const tint = m.img ? "" : ` tinted" style="background-color:${m.color}`;
+        return `<div class="category-item" onclick="filterByCategory('${cat}')"><div class="cat-icon${tint}">${inner}</div><div class="cat-label">${label}</div></div>`;
       })
       .join("");
   }
@@ -343,105 +378,399 @@ function applyLanguage() {
   updateView();
   updateLiveDataText();
   updateGenderVisibility();
+  renderChecklist();
+  updateChecklistFab();
 }
 
 window.toggleLanguage = function () {
   currentLang = currentLang === "ru" ? "en" : "ru";
   localStorage.setItem("muslim_lang", currentLang);
+  localStorage.setItem("muslim_lang_manual", "1");
+  document.documentElement.lang = currentLang;
   applyLanguage();
 };
 
 const onboardingScreen = document.getElementById("onboardingScreen");
 const appContent = document.getElementById("appContent");
-let userData = { visit: null, guide: null, gender: null, name: null };
-let currentStep = "step-welcome";
+let userData = {
+  visit: null,
+  gender: null,
+  name: null,
+  startDate: null,
+  checklist: {},
+};
+const CHECKLIST_DAYS = 22;
+
+function playStep(id) {
+  document
+    .querySelectorAll(".onboarding-step")
+    .forEach((s) => s.classList.remove("active", "shown", "leaving"));
+  const step = document.getElementById(id);
+  step.classList.add("active");
+  setTimeout(() => step.classList.add("shown"), 850);
+}
+
+window.nextOnboardingStep = function (currentId, nextId) {
+  const cur = document.getElementById(currentId);
+  cur.classList.add("leaving");
+  setTimeout(() => playStep(nextId), 260);
+};
+
+function persistUser() {
+  localStorage.setItem("muslim_app_user", JSON.stringify(userData));
+}
+
+function startChecklistClock() {
+  if (!userData.startDate) userData.startDate = Date.now();
+}
+
+function getChecklistDay() {
+  if (!userData.startDate) return null;
+  return Math.floor((Date.now() - userData.startDate) / 86400000) + 1;
+}
 
 window.selectOption = function (btn, type) {
   const parent = btn.parentElement;
-  parent
-    .querySelectorAll(".option-btn")
-    .forEach((b) => b.classList.remove("selected"));
+  if (parent.classList.contains("locked")) return;
+  parent.classList.add("locked");
   btn.classList.add("selected");
 
-  if (type === "visit") {
-    userData.visit = btn.dataset.value;
-    document.getElementById("nextBtnVisit").disabled = false;
-  } else if (type === "guide") {
-    userData.guide = btn.dataset.value;
-    document.getElementById("nextBtnGuide").disabled = false;
-  } else if (type === "gender") {
-    userData.gender = btn.dataset.value;
-    document.getElementById("nextBtnGender").disabled = false;
-  }
-};
+  userData[type] = btn.dataset.value;
 
-window.nextOnboardingStep = function (currentId, nextId) {
-  document.getElementById(currentId).classList.remove("active");
-  document.getElementById(nextId).classList.add("active");
-};
-
-window.handleVisitStep = function () {
-  if (userData.visit === "first") {
-    nextOnboardingStep("step-visit", "step-guide");
-  } else {
-    nextOnboardingStep("step-visit", "step-gender");
-  }
-};
-
-window.handleGuideStep = function () {
-  nextOnboardingStep("step-guide", "step-gender");
+  setTimeout(() => {
+    if (type === "visit") {
+      nextOnboardingStep("step-visit", "step-gender");
+    } else if (userData.visit === "first") {
+      startChecklistClock();
+      persistUser();
+      updateProfileUI();
+      updateGenderVisibility();
+      nextOnboardingStep("step-gender", "step-tip");
+    } else {
+      finishOnboarding();
+    }
+  }, 450);
 };
 
 window.finishOnboarding = function () {
-  localStorage.setItem("muslim_app_user", JSON.stringify(userData));
+  if (userData.visit === "first") startChecklistClock();
+  persistUser();
   onboardingScreen.classList.add("hidden");
   updateProfileUI();
   updateGenderVisibility();
+  updateChecklistFab();
+};
 
-  if (userData.visit === "first" && userData.guide === "yes") {
-    document.getElementById("homeGuideBanner").classList.remove("hidden");
-  }
+window.showChecklistSpot = function () {
+  finishOnboarding();
+  setTimeout(spotlightFab, 700);
 };
 
 function checkUserData() {
   const savedData = localStorage.getItem("muslim_app_user");
   if (savedData) {
-    userData = JSON.parse(savedData);
+    userData = Object.assign(userData, JSON.parse(savedData));
+    userData.checklist = userData.checklist || {};
+
+    if (userData.visit === "first" && !userData.startDate) {
+      startChecklistClock();
+      persistUser();
+    }
     onboardingScreen.classList.add("hidden");
     updateProfileUI();
     updateGenderVisibility();
-
-    if (userData.visit === "first" && userData.guide === "yes") {
-      document.getElementById("homeGuideBanner").classList.remove("hidden");
-    }
+    updateChecklistFab();
   } else {
     onboardingScreen.classList.remove("hidden");
-    document
-      .querySelectorAll(".onboarding-step")
-      .forEach((s) => s.classList.remove("active"));
-    document.getElementById("step-welcome").classList.add("active");
+    playStep("step-welcome");
   }
 }
 
-window.openFullGuide = function () {
-  document.getElementById("guideScreen").classList.add("active");
+function updateChecklistFab() {
+  const fab = document.getElementById("checklistFab");
+  if (!fab) return;
+  const day = getChecklistDay();
+  const visible =
+    userData.visit === "first" &&
+    day !== null &&
+    day <= CHECKLIST_DAYS &&
+    onboardingScreen.classList.contains("hidden");
+
+  if (visible) {
+    document.getElementById("fabDay").textContent = t("fabDay")
+      .replace("{n}", day)
+      .replace("{total}", CHECKLIST_DAYS);
+  }
+  fab.classList.toggle("hidden", !visible);
+}
+
+let spotlightTimer = null;
+function spotlightFab() {
+  const fab = document.getElementById("checklistFab");
+  if (!fab || fab.classList.contains("hidden")) return;
+  fab.classList.add("spotlight");
+  clearTimeout(spotlightTimer);
+  spotlightTimer = setTimeout(stopSpotlight, 8000);
+}
+
+function stopSpotlight() {
+  clearTimeout(spotlightTimer);
+  const fab = document.getElementById("checklistFab");
+  if (fab) fab.classList.remove("spotlight");
+}
+
+const CHECKLIST_ITEMS = [
+  { key: "mosque", cat: "Мечети", label: "clMosque", query: "мечеть" },
+  { key: "food", cat: "Халяль еда", label: "clFood", query: "халяль" },
+  { key: "shop", cat: "Супермаркеты", label: "clShop", query: "супермаркет" },
+  { key: "pharmacy", cat: "Аптеки", label: "clPharmacy", query: "аптека" },
+  { key: "hospital", cat: "Больницы", label: "clHospital", query: "больница" },
+  { key: "mfc", cat: "МФЦ", label: "clMfc", query: "МФЦ Мои документы" },
+  {
+    key: "embassy",
+    cat: "Посольства",
+    label: "clEmbassy",
+    query: "посольство",
+  },
+];
+
+const USEFUL_APPS = [
+  {
+    letter: "Я",
+    name: "Яндекс Карты",
+    url: "https://yandex.ru/maps",
+    ru: "Карты и навигация",
+    en: "Maps and navigation",
+  },
+  {
+    letter: "2",
+    name: "2ГИС",
+    url: "https://2gis.ru/moscow",
+    ru: "Карта города, места и маршруты",
+    en: "City map, places and routes",
+  },
+  {
+    letter: "Я",
+    name: "Яндекс Go",
+    url: "https://go.yandex/",
+    ru: "Такси и поездки",
+    en: "Taxi and rides",
+  },
+  {
+    letter: "М",
+    name: "Метро Москвы",
+    url: "https://www.mosmetro.ru",
+    ru: "Схема метро и маршруты",
+    en: "Metro map and routes",
+  },
+  {
+    letter: "D",
+    name: "Delivery Club",
+    url: "https://www.delivery-club.ru",
+    ru: "Доставка еды и продуктов",
+    en: "Food and grocery delivery",
+  },
+  {
+    letter: "Я",
+    name: "Яндекс Еда",
+    url: "https://eda.yandex.ru",
+    ru: "Доставка из ресторанов",
+    en: "Restaurant delivery",
+  },
+  {
+    letter: "Я",
+    name: "Яндекс Лавка",
+    url: "https://lavka.yandex.ru",
+    ru: "Продукты за несколько минут",
+    en: "Groceries in minutes",
+  },
+  {
+    letter: "Г",
+    name: "Госуслуги",
+    url: "https://www.gosuslugi.ru",
+    ru: "Документы и государственные услуги",
+    en: "Documents and government services",
+  },
+  {
+    letter: "M",
+    name: "Mos.ru",
+    url: "https://www.mos.ru",
+    ru: "Городские услуги Москвы",
+    en: "Moscow city services",
+  },
+  {
+    letter: "Я",
+    name: "Яндекс Переводчик",
+    url: "https://translate.yandex.ru",
+    ru: "Перевод текста и фото",
+    en: "Text and photo translation",
+  },
+];
+
+const PIN_SMALL_SVG =
+  '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s7-6.2 7-12a7 7 0 0 0-14 0c0 5.8 7 12 7 12z"></path><circle cx="12" cy="10" r="2.5"></circle></svg>';
+const PHONE_SVG =
+  '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"></path></svg>';
+
+function nearestPlace(cat) {
+  if (typeof placesData === "undefined") return null;
+  let best = null;
+  let bestDist = Infinity;
+  placesData
+    .filter((p) => p.category === cat && hasCoords(p))
+    .forEach((p) => {
+      const d = getDistanceFromLatLonInKm(
+        userLocation.lat,
+        userLocation.lng,
+        p.lat,
+        p.lng,
+      );
+      if (d < bestDist) {
+        bestDist = d;
+        best = p;
+      }
+    });
+  return best ? { place: best, dist: bestDist } : null;
+}
+
+function formatDistance(km) {
+  return km < 1
+    ? Math.round(km * 1000) + " " + t("m")
+    : km.toFixed(1) + " " + t("km");
+}
+
+function isChecklistActive() {
+  const day = getChecklistDay();
+  return userData.visit === "first" && day !== null && day <= CHECKLIST_DAYS;
+}
+
+function renderChecklist() {
+  const list = document.getElementById("clList");
+  if (!list) return;
+
+  if (isChecklistActive()) {
+    document.getElementById("clTitle").textContent = t("clTitle");
+    document.getElementById("clSub").textContent = t("clSub")
+      .replace("{n}", Math.min(getChecklistDay(), CHECKLIST_DAYS))
+      .replace("{total}", CHECKLIST_DAYS);
+  } else {
+    document.getElementById("clTitle").textContent = t("clTitlePlain");
+    document.getElementById("clSub").textContent = t("clSubPlain");
+  }
+
+  const done = userData.checklist || {};
+  let doneCount = 0;
+
+  list.innerHTML = CHECKLIST_ITEMS.map((item) => {
+    const found = nearestPlace(item.cat);
+    const isDone = !!done[item.key];
+    if (isDone) doneCount++;
+
+    let name, dist, action;
+    if (found) {
+      name =
+        currentLang === "en" && found.place.nameEn
+          ? found.place.nameEn
+          : found.place.name;
+      dist = formatDistance(found.dist);
+      action = `<button class="cl-go" onclick="showOnMap(${found.place.id})">${PIN_SMALL_SVG}${t("clOnMap")}</button>`;
+    } else {
+      name = t("clSearchMaps");
+      dist = "";
+      action = `<a class="cl-go" href="https://yandex.ru/maps/?text=${encodeURIComponent(item.query)}" target="_blank" rel="noopener">${PIN_SMALL_SVG}${t("clOpenMaps")}</a>`;
+    }
+
+    return `<div class="cl-item ${isDone ? "done" : ""}">
+      <button class="cl-check" onclick="toggleChecklistItem('${item.key}')">✓</button>
+      <div class="cl-info">
+        <div class="cl-label">${t(item.label)}</div>
+        <div class="cl-name">${name}</div>
+        <div class="cl-dist">${dist}</div>
+      </div>
+      ${action}
+    </div>`;
+  }).join("");
+
+  document.getElementById("clBar").style.width =
+    (doneCount / CHECKLIST_ITEMS.length) * 100 + "%";
+  document.getElementById("clProgressLabel").textContent = t("clProgress")
+    .replace("{done}", doneCount)
+    .replace("{total}", CHECKLIST_ITEMS.length);
+  document.getElementById("clHint").textContent = userLocationReal
+    ? ""
+    : t("clNoGeo");
+
+  document.getElementById("clPaneSos").innerHTML = `
+    <a class="sos-card urgent" href="tel:112">
+      <div class="sos-number">112</div>
+      <div class="sos-text">
+        <div class="sos-name">${t("sos112Name")}</div>
+        <div class="sos-desc">${t("sos112Desc")}</div>
+      </div>
+      <div class="sos-call">${PHONE_SVG}</div>
+    </a>
+    <a class="sos-card info" href="tel:+74957777777">
+      <div class="sos-number">+7 (495)<br>777-77-77</div>
+      <div class="sos-text">
+        <div class="sos-name">${t("sosCityName")}</div>
+        <div class="sos-desc">${t("sosCityDesc")}</div>
+      </div>
+      <div class="sos-call">${PHONE_SVG}</div>
+    </a>`;
+
+  document.getElementById("clPaneApps").innerHTML = USEFUL_APPS.map(
+    (
+      app,
+    ) => `<a class="app-row" href="${app.url}" target="_blank" rel="noopener">
+      <div class="app-tile">${app.letter}</div>
+      <div>
+        <div class="app-name">${app.name}</div>
+        <div class="app-desc">${app[currentLang] || app.ru}</div>
+      </div>
+      <div class="app-open">↗</div>
+    </a>`,
+  ).join("");
+}
+
+window.setChecklistTab = function (tab) {
+  document
+    .querySelectorAll(".cl-tab")
+    .forEach((b) => b.classList.toggle("active", b.dataset.tab === tab));
+  const panes = {
+    nearby: "clPaneNearby",
+    sos: "clPaneSos",
+    apps: "clPaneApps",
+  };
+  Object.entries(panes).forEach(([key, id]) => {
+    document.getElementById(id).style.display = key === tab ? "block" : "none";
+  });
 };
 
-window.closeFullGuide = function () {
-  document.getElementById("guideScreen").classList.remove("active");
+window.openChecklist = function (tab) {
+  stopSpotlight();
+  renderChecklist();
+  setChecklistTab(typeof tab === "string" ? tab : "nearby");
+  document.getElementById("checklistModal").classList.add("active");
 };
 
-window.closeHomeGuide = function (e) {
-  e.stopPropagation();
-  document.getElementById("homeGuideBanner").classList.add("hidden");
+window.closeChecklist = function () {
+  document.getElementById("checklistModal").classList.remove("active");
 };
 
-window.openGuideCategory = function (category) {
-  closeFullGuide();
-  if (category === "Мечети") filterByCategory("Мечети");
-  else if (category === "Халяль еда") filterByCategory("Халяль еда");
-  else if (category === "Супермаркеты") filterByCategory("Супермаркеты");
-  switchTab("home");
+window.toggleChecklistItem = function (key) {
+  userData.checklist = userData.checklist || {};
+  userData.checklist[key] = !userData.checklist[key];
+  persistUser();
+  renderChecklist();
+};
+
+window.showOnMap = function (id) {
+  closeChecklist();
+  switchTab("map");
+  setTimeout(() => {
+    const place = placesData.find((p) => p.id === id);
+    if (place && typeof map !== "undefined") selectMapPlace(place);
+  }, 250);
 };
 
 let favorites = JSON.parse(localStorage.getItem("muslim_favorites")) || [];
@@ -468,13 +797,6 @@ const placesList = document.getElementById("placesList");
 const favoritesList = document.getElementById("favoritesList");
 const categoriesContainer = document.getElementById("categoriesContainer");
 const searchInput = document.getElementById("searchInput");
-
-const catShortNames = {
-  Мечети: "МЧ",
-  "Халяль еда": "HL",
-  Супермаркеты: "SM",
-  "Beauty салоны": "BS",
-};
 
 function renderPlaces(placesArray, container) {
   container.innerHTML = "";
@@ -560,7 +882,8 @@ function updateView() {
         p.address.toLowerCase().includes(query),
     );
   }
-  renderPlaces(filtered.slice(0, 10), placesList);
+  const showAll = currentFilter !== "Все" || currentSearch.trim() !== "";
+  renderPlaces(showAll ? filtered : filtered.slice(0, 10), placesList);
 
   const favPlaces = placesData.filter((p) => favorites.includes(p.id));
   renderPlaces(favPlaces, favoritesList);
@@ -729,14 +1052,55 @@ function initMaps() {
   });
 }
 
+function pinGlyph(category, color, stroke) {
+  const common = `fill="none" stroke="${color}" stroke-width="${stroke || 1.8}" stroke-linecap="round" stroke-linejoin="round"`;
+  let inner;
+  if (category === "Мечети") {
+    inner = `<path d="M5 20v-6a7 7 0 0 1 14 0v6z" ${common}/><path d="M12 4v3M3 20h18" ${common}/>`;
+  } else if (category === "Халяль еда") {
+    inner = `<path d="M7 3v6a2.5 2.5 0 0 0 5 0V3M9.5 3v18" ${common}/><path d="M17 21V3c-2.2 1.6-3.2 4-3.2 7H17" ${common}/>`;
+  } else if (category === "Супермаркеты") {
+    inner = `<path d="M5 8h14l-1 12H6z" ${common}/><path d="M9 8V7a3 3 0 0 1 6 0v1" ${common}/>`;
+  } else if (category === "Больницы") {
+    inner = `<path d="M12 4v16M4 12h16" ${common}/>`;
+  } else if (category === "Аптеки") {
+    inner = `<g transform="rotate(-45 12 12)"><rect x="2.5" y="8" width="19" height="8" rx="4" ${common}/><path d="M12 8v8" ${common}/></g>`;
+  } else if (category === "Посольства") {
+    inner = `<path d="M6 21V4" ${common}/><path d="M6 5h12l-3 4 3 4H6" ${common}/>`;
+  } else if (category === "МФЦ") {
+    inner = `<path d="M6 3h8l4 4v14H6z" ${common}/><path d="M14 3v4h4M9 12h6M9 16h6" ${common}/>`;
+  } else {
+    inner = `<path d="M12 3l2 5.5L19.5 10 14 12l-2 5.5L10 12l-5.5-2L10 8.5z" ${common}/>`;
+  }
+  return `<svg viewBox="0 0 24 24" width="100%" height="100%">${inner}</svg>`;
+}
+
 function createMarkerIcon(place) {
-  const iconHtml = `<div class="custom-marker">${catShortNames[place.category] || "•"}</div>`;
+  const color = (CAT_META[place.category] || {}).color || "#0d3b2e";
+  const html = `<div class="pin-marker">
+    <svg width="36" height="44" viewBox="0 0 36 44">
+      <path d="M18 42C18 42 33 28 33 17.5 33 8.9 26.3 2.5 18 2.5S3 8.9 3 17.5C3 28 18 42 18 42z" fill="${color}" stroke="#ffffff" stroke-width="2.5"/>
+      <g transform="translate(10.2 9.7) scale(0.65)">${pinGlyph(place.category, "#ffffff", 2.2).replace('width="100%" height="100%"', 'width="24" height="24"')}</g>
+    </svg>
+  </div>`;
   return L.divIcon({
-    html: iconHtml,
+    html,
     className: "",
-    iconSize: [32, 32],
-    iconAnchor: [16, 16],
+    iconSize: [36, 44],
+    iconAnchor: [18, 42],
   });
+}
+
+function selectMapPlace(place) {
+  activeMapPlaceId = place.id;
+  const displayName =
+    currentLang === "en" && place.nameEn ? place.nameEn : place.name;
+  const displayAddress =
+    currentLang === "en" && place.addressEn ? place.addressEn : place.address;
+  document.getElementById("mapCardTitle").textContent = displayName;
+  document.getElementById("mapCardAddress").textContent = displayAddress;
+  document.getElementById("mapBottomCard").style.display = "block";
+  map.flyTo([place.lat, place.lng], 14, { duration: 0.5 });
 }
 
 function updateMapMarkers() {
@@ -753,23 +1117,11 @@ function updateMapMarkers() {
       ? baseData
       : baseData.filter((p) => p.category === currentMapFilter);
 
-  filtered.forEach((place) => {
+  filtered.filter(hasCoords).forEach((place) => {
     const marker = L.marker([place.lat, place.lng], {
       icon: createMarkerIcon(place),
     }).addTo(markersLayer);
-    marker.on("click", () => {
-      activeMapPlaceId = place.id;
-      const displayName =
-        currentLang === "en" && place.nameEn ? place.nameEn : place.name;
-      const displayAddress =
-        currentLang === "en" && place.addressEn
-          ? place.addressEn
-          : place.address;
-      document.getElementById("mapCardTitle").textContent = displayName;
-      document.getElementById("mapCardAddress").textContent = displayAddress;
-      document.getElementById("mapBottomCard").style.display = "block";
-      map.flyTo([place.lat, place.lng], 14, { duration: 0.5 });
-    });
+    marker.on("click", () => selectMapPlace(place));
   });
 }
 
@@ -787,11 +1139,14 @@ function updateHomeMapMarkers() {
   if (currentFilter !== "Все")
     filtered = filtered.filter((p) => p.category === currentFilter);
 
-  filtered.slice(0, 15).forEach((place) => {
-    L.marker([place.lat, place.lng], { icon: createMarkerIcon(place) }).addTo(
-      homeMarkersLayer,
-    );
-  });
+  filtered
+    .filter(hasCoords)
+    .slice(0, 30)
+    .forEach((place) => {
+      L.marker([place.lat, place.lng], { icon: createMarkerIcon(place) }).addTo(
+        homeMarkersLayer,
+      );
+    });
 }
 
 window.closeMapCard = function () {
@@ -819,13 +1174,9 @@ window.openPlaceDetails = function (id) {
   document.getElementById("modalTitle").textContent = displayName;
   document.getElementById("modalAddress").textContent = displayAddress;
 
-  let catName = place.category;
-  if (place.category === "Мечети") catName = t("catMosques");
-  if (place.category === "Халяль еда") catName = t("catFood");
-  if (place.category === "Супермаркеты") catName = t("catShops");
-  if (place.category === "Beauty салоны") catName = t("catBeauty");
-
-  document.getElementById("modalCategory").textContent = catName;
+  document.getElementById("modalCategory").textContent = catLabel(
+    place.category,
+  );
 
   const ratingValue = document.getElementById("modalRating");
   const ratingRow = ratingValue.parentElement;
@@ -836,12 +1187,29 @@ window.openPlaceDetails = function (id) {
     ratingRow.style.display = "none";
   }
 
-  document.getElementById("modalClosedRooms").textContent = place.hasClosedRooms
-    ? t("yes")
-    : t("no");
-  document.getElementById("modalPrayerSpace").textContent = place.hasPrayerSpace
-    ? t("yes")
-    : t("no");
+  const prayerRelevant = [
+    "Мечети",
+    "Халяль еда",
+    "Супермаркеты",
+    "Beauty салоны",
+  ].includes(place.category);
+  const roomsEl = document.getElementById("modalClosedRooms");
+  const prayerEl = document.getElementById("modalPrayerSpace");
+  roomsEl.textContent = place.hasClosedRooms ? t("yes") : t("no");
+  prayerEl.textContent = place.hasPrayerSpace ? t("yes") : t("no");
+  roomsEl.parentElement.style.display =
+    prayerRelevant && typeof place.hasClosedRooms === "boolean"
+      ? "flex"
+      : "none";
+  prayerEl.parentElement.style.display =
+    prayerRelevant && typeof place.hasPrayerSpace === "boolean"
+      ? "flex"
+      : "none";
+
+  const q = encodeURIComponent(`${place.name}, ${place.address}, Москва`);
+  document.getElementById("modalLinks").innerHTML =
+    `<a class="modal-link-btn" href="https://yandex.ru/maps/?text=${q}" target="_blank" rel="noopener">${PIN_SMALL_SVG}${t("linkYandex")}</a>` +
+    `<a class="modal-link-btn" href="https://2gis.ru/moscow/search/${q}" target="_blank" rel="noopener">${PIN_SMALL_SVG}${t("link2gis")}</a>`;
   document.getElementById("modalFeatures").textContent =
     place.features.join(", ");
 
@@ -968,7 +1336,7 @@ function updateProfileUI() {
     daysText.textContent = "∞";
     daysLabel.textContent = t("lblDaysCountLocal");
   } else {
-    daysText.textContent = "1";
+    daysText.textContent = getChecklistDay() || "1";
     daysLabel.textContent = t("lblDaysCount");
   }
 
@@ -986,6 +1354,7 @@ window.resetApp = function () {
 };
 
 let userLocation = { lat: 55.7558, lng: 37.6173 };
+let userLocationReal = false;
 let currentLiveData = {
   prayerName: "",
   prayerTime: "",
@@ -1003,6 +1372,7 @@ function getLocationAndUpdate() {
           lat: position.coords.latitude,
           lng: position.coords.longitude,
         };
+        userLocationReal = true;
         updateLiveData();
       },
       (error) => {
@@ -1016,6 +1386,7 @@ function getLocationAndUpdate() {
 }
 
 async function updateLiveData() {
+  renderChecklist();
   let minDistance = Infinity;
   let nearestMosque = null;
   if (typeof placesData !== "undefined") {
